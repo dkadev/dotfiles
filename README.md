@@ -14,7 +14,7 @@ TODO: add installation script
 
 First step is to clone this repository:
 
-    git clone https://github.com/hamvocke/dotfiles.git ~/.dotfiles
+    git clone https://github.com/dkadev/dotfiles.git ~/.dotfiles
 
 ## Config
 
