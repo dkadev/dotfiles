@@ -9,7 +9,6 @@ Tool used to preview themes with [base16-shell-preview](https://github.com/nvlls
 ![terminator screenshot](screenshot.png)
 
 ## Install
----
 
 TODO: add installation script
 
@@ -18,7 +17,6 @@ First step is to clone this repository:
     git clone https://github.com/hamvocke/dotfiles.git ~/.dotfiles
 
 ## Config
----
 
 ### Using [GNU Stow](https://www.gnu.org/software/stow/) _(recommended)_
 Install GNU Stow _(if not already installed)_
@@ -38,6 +36,8 @@ Then simply use stow to install the dotfiles you want to use:
 Create symbolic links for the configurations you want to use, e.g.:
 
     ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
+
+---
 
 Use base16 colors
 -----------------
