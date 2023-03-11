@@ -1,0 +1,8 @@
+#------------------------------------------------------
+# OMZ external plugins
+#------------------------------------------------------
+
+# https://github.com/zsh-users/zsh-autosuggestions
+zsh-autosuggestions 
+# https://github.com/zsh-users/zsh-syntax-highlighting.git
+zsh-syntax-highlighting
