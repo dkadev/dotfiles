@@ -12,35 +12,35 @@ Tool used to preview themes with [base16-shell-preview](https://github.com/nvlls
 
 TODO: add installation script
 
+## Configuration
 First step is to clone this repository:
-
-    git clone https://github.com/dkadev/dotfiles.git ~/.dotfiles
-
-## Config
+```jsx
+git clone https://github.com/dkadev/dotfiles.git ~/.dotfiles
+```
 
 ### Using [GNU Stow](https://www.gnu.org/software/stow/) _(recommended)_
 Install GNU Stow _(if not already installed)_
-
-    Mac:      brew install stow
-    Ubuntu:   apt-get install stow
-    Fedora:   yum install stow
-    Arch:     pacman -S stow
-
+```jsx
+Mac:      brew install stow
+Ubuntu:   apt-get install stow
+Fedora:   yum install stow
+Arch:     pacman -S stow
+```
 Then simply use stow to install the dotfiles you want to use:
-
-    cd ~/.dotfiles
-    stow vim
-    stow tmux
-
+```
+cd ~/.dotfiles
+stow vim
+stow tmux
+```
 ### or Manual Installation
 Create symbolic links for the configurations you want to use, e.g.:
-
-    ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
-
+```
+ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
+```
 ---
 
 Use base16 colors
------------------
+------------------------
 To get the most out of my dotfiles I recommend installing [base16-shell](https://github.com/chriskempson/base16-shell) on your system. This will allow you to have unified colors in all your command line applications. If you see that some colors are off when using my setup, installing base16-shell is most likely the way to fix it.
 
 Additional configuration
