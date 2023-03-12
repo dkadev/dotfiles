@@ -2,9 +2,9 @@
 
 Config files for `omz`.
 
-Some basic old plugins and a bunch of useful aliases and functions.
+Some basic aliases and custom functions.
 
-Also use other external plugins which I prefer to keep updated by themshelves.
+Third-party plugins:
 
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions):
 ```jsx
@@ -18,4 +18,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 ## Installation
 Install the config files according to the instructions in this repo's top level README.md
+
+Also install plugins or disable them in `~/.zshrc` if you don't use them.
 
