@@ -60,3 +60,11 @@ strip_pdf() {
     echo "Final status of stripped-$1"
     pdfinfo -upw $password stripped-$1
 }
+
+function zip_folders() {
+  path="$1"
+  for f in "$path"/*/; do
+    name=$(basename "$f")
+    zip -P "$name" "$name.zip" "$name" -r
+  done
+}
