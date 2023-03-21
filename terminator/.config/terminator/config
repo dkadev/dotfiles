@@ -20,6 +20,7 @@
     cursor_bg_color = "#8ff0a4"
     font = Hack 9
     foreground_color = "#8ff0a4"
+    scrollbar_position = hidden
     scrollback_infinite = True
     disable_mousewheel_zoom = True
     palette = "#232323:#d10926:#8ce10b:#ffb900:#008df8:#6d43a6:#00d8eb:#ffffff:#444444:#d21b35:#abe15b:#ffd242:#0092ff:#9a5feb:#67fff0:#ffffff"

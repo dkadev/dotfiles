@@ -5,7 +5,7 @@
 alias ls="lsd"
 alias ll="ls -lh"
 alias lla="ls -lah"
-alias cat="bat"
+alias cat="batcat"
 alias ip="ip --color=auto"
 alias h="history"
 alias hs="history | grep"
