@@ -2,9 +2,7 @@
 
 A collection of my personal dotfiles. 
 
-Here's a little preview of what it looks like with [base16-shell](https://github.com/chriskempson/base16-shell)'s _Pico_ theme enabled.
 
-Tool used to preview themes is [base16-shell-preview](https://github.com/nvllsvm/base16-shell-preview).
 
 ![terminator screenshot](screenshot.png)
 
@@ -34,14 +32,14 @@ Fedora:   yum install stow
 Arch:     pacman -S stow
 ```
 Then simply use stow to install the dotfiles you want to use:
-```
+```shell
 cd ~/.dotfiles
 stow vim
 stow tmux
 ```
 ### or Manual Installation
 Create symbolic links for the configurations you want to use, e.g.:
-```
+```shell
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ```
 
