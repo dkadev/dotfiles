@@ -1,0 +1,122 @@
+[global_config]
+  tab_position = hidden
+  scroll_tabbar = True
+  homogeneous_tabbar = False
+  sticky = True
+  inactive_color_offset = 0.6063829787234043
+  suppress_multiple_term_dialog = True
+  disable_mouse_paste = True
+[keybindings]
+  split_horiz = <Primary><Alt>minus
+  split_vert = <Primary><Alt>i
+[profiles]
+  [[default]]
+    background_color = "#010203"
+    background_darkness = 0.95
+    background_type = transparent
+    background_image = None
+    cursor_shape = underline
+    cursor_fg_color = "#131418"
+    cursor_bg_color = "#8ff0a4"
+    font = Hack 9
+    foreground_color = "#8ff0a4"
+    scrollbar_position = hidden
+    scrollback_infinite = True
+    disable_mousewheel_zoom = True
+    palette = "#232323:#d10926:#8ce10b:#ffb900:#008df8:#6d43a6:#00d8eb:#ffffff:#444444:#d21b35:#abe15b:#ffd242:#0092ff:#9a5feb:#67fff0:#ffffff"
+    use_system_font = False
+    use_theme_colors = True
+    bold_is_bright = True
+    copy_on_selection = True
+    title_hide_sizetext = True
+    title_transmit_fg_color = "#2777ff"
+    title_transmit_bg_color = "#010203"
+    title_inactive_fg_color = "#3d3846"
+    title_inactive_bg_color = "#010203"
+    title_use_system_font = False
+[layouts]
+  [[default]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 353:97
+      maximised = False
+      fullscreen = False
+      size = 1300, 800
+      title = " "
+      last_active_term = af37d5d1-b31e-4585-bb69-76c20dec1583
+      last_active_window = True
+    [[[terminal1]]]
+      type = Terminal
+      parent = child0
+      order = 0
+      profile = default
+      uuid = af37d5d1-b31e-4585-bb69-76c20dec1583
+  [[BOX]]
+    [[[child0]]]
+      type = Window
+      parent = ""
+      order = 0
+      position = 0:29
+      maximised = True
+      fullscreen = False
+      size = 1920, 1023
+      title = BOX
+      last_active_window = True
+    [[[child1]]]
+      type = Notebook
+      parent = child0
+      order = 0
+      labels = RECON, CONTENT, EXPLOITS, OPENVPN
+      last_active_term = 44bb44ee-b2e0-46b7-a330-2b7c774bc11c, 7a00af3e-95d6-43ce-b946-54f95329aaf2, af37d5d1-b31e-4585-bb69-76c20dec1583, e636a005-7cdb-4004-bc9d-5b9c61d41650
+      active_page = 3
+    [[[child2]]]
+      type = VPaned
+      parent = child1
+      order = 0
+      position = 491
+      ratio = 0.49949135300101727
+    [[[terminal3]]]
+      type = Terminal
+      parent = child2
+      order = 0
+      profile = default
+      uuid = fdf17568-41c6-4fa3-985b-58e94f589640
+    [[[child4]]]
+      type = HPaned
+      parent = child2
+      order = 1
+      position = 955
+      ratio = 0.4992158912702561
+    [[[terminal5]]]
+      type = Terminal
+      parent = child4
+      order = 0
+      profile = default
+      uuid = b1b10016-e9e8-429d-a5cb-42ee3f261364
+    [[[terminal6]]]
+      type = Terminal
+      parent = child4
+      order = 1
+      profile = default
+      uuid = 44bb44ee-b2e0-46b7-a330-2b7c774bc11c
+    [[[terminal7]]]
+      type = Terminal
+      parent = child1
+      order = 1
+      profile = default
+      uuid = 7a00af3e-95d6-43ce-b946-54f95329aaf2
+    [[[terminal8]]]
+      type = Terminal
+      parent = child1
+      order = 2
+      profile = default
+      uuid = af37d5d1-b31e-4585-bb69-76c20dec1583
+    [[[terminal9]]]
+      type = Terminal
+      parent = child1
+      order = 3
+      profile = default
+      uuid = e636a005-7cdb-4004-bc9d-5b9c61d41650
+[plugins]
