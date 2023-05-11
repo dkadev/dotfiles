@@ -12,8 +12,7 @@ Tool used to preview themes is [base16-shell-preview](https://github.com/nvllsvm
 
 TODO: add installation script
 
-- Good friend [Ulauncher](https://ulauncher.io/#Download)
-- Install any Nerd Font like [Hack NF](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/) for terminal icons (you would probably need [Font manager](https://github.com/FontManager/font-manager))
+- Install any Nerd Font like [Hack NF](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/) for terminal icons ([Font manager](https://github.com/FontManager/font-manager))
 - [Make ZSH default shell](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) if not already
 - Oh My ZSH -> https://ohmyz.sh/
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k) Theme for Oh My ZSH
@@ -21,14 +20,14 @@ TODO: add installation script
 - [lsd](https://github.com/Peltoche/lsd) ls on steroids
 
 ## Configuration
-First step is to clone this repository:
-```jsx
+Clone this repository:
+```shell
 git clone https://github.com/dkadev/dotfiles.git ~/.dotfiles
 ```
 
 ### Using [GNU Stow](https://www.gnu.org/software/stow/) _(recommended)_
 Install GNU Stow _(if not already installed)_
-```jsx
+```
 Mac:      brew install stow
 Ubuntu:   apt-get install stow
 Fedora:   yum install stow
@@ -45,11 +44,6 @@ Create symbolic links for the configurations you want to use, e.g.:
 ```
 ln -s ~/.dotfiles/vim/.vimrc ~/.vimrc
 ```
-
-## Appearance
-
-[Qogir-theme](https://github.com/vinceliuice/Qogir-theme)
-
 
 ---
 Use base16 colors
