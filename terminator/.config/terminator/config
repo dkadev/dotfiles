@@ -40,10 +40,10 @@
       type = Window
       parent = ""
       order = 0
-      position = 353:97
+      position = 200:50
       maximised = False
       fullscreen = False
-      size = 1300, 800
+      size = 1500, 900
       title = " "
       last_active_term = af37d5d1-b31e-4585-bb69-76c20dec1583
       last_active_window = True
