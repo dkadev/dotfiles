@@ -34,7 +34,8 @@ function extractPorts(){
     cat extractPorts.tmp; rm extractPorts.tmp
 }
 
-strip_pdf() {
+# Strip and encrypt PDF
+function strip_pdf() {
     echo "Original Metadata for $1"
     exiftool $1
     
@@ -61,6 +62,7 @@ strip_pdf() {
     pdfinfo -upw $password stripped-$1
 }
 
+# Zip and encrypt folders
 function zip_folders() {
     path="$1"
     for f in "$path"/*/; do
@@ -69,6 +71,7 @@ function zip_folders() {
     done
 }
 
+# Tar and encrypt folders with gpg
 function ctargpg() {
     if [ $# -eq 0 ]; then
         echo "No folders provided."
@@ -101,6 +104,7 @@ function ctargpg() {
     done
 }
 
+# Decrypt and untar folders with gpg
 function xtargpg() {
     for encrypted_file in "$@"; do
         if [ -f "$encrypted_file" ]; then
