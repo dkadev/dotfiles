@@ -5,7 +5,17 @@
 alias ls="lsd"
 alias ll="ls -lh"
 alias lla="ls -lah"
-alias cat="batcat"
+
+# macOS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  alias cat="bat"
+fi
+
+# Linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  alias cat="batcat"
+fi
+
 alias ip="ip --color=auto"
 alias h="history"
 alias hs="history | grep"
