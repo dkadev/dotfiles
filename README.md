@@ -2,8 +2,6 @@
 
 A collection of my personal dotfiles.
 
-![terminator screenshot](screenshot.png)
-
 ## Install
 
 TODO: add installation script
@@ -14,6 +12,7 @@ TODO: add installation script
 - [powerlevel10k](https://github.com/romkatv/powerlevel10k) Theme for Oh My ZSH
 - [bat](https://github.com/sharkdp/bat) cat on steroids
 - [lsd](https://github.com/Peltoche/lsd) ls on steroids
+- [Iterm2-color-schemes](https://iterm2colorschemes.com/) A set of color themes for most terminals
 
 ## Configuration
 
