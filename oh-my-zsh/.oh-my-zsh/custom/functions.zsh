@@ -47,6 +47,54 @@ function extractPortsFromFile() {
     done < <(cat "$input_file")
 }
 
+# ExtractHosts from cme smb and dnsrecon
+#########################################
+function merge_ips() {
+    if [ "$#" -ne 3 ]; then
+        echo "Usage: $0 <ip_file1> <ip_file2> <output_file>"
+        exit 1
+    fi
+    
+    ip_file1=$1
+    ip_file2=$2
+    output_file=$3
+    
+    cat "$ip_file1" "$ip_file2" | sort -t . -k 3,3n -k 4,4n > "$output_file"
+    
+}
+
+function separate_subnets() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 <ip_list_file>"
+        exit 1
+    fi
+    
+    ip_list_file=$1
+    
+    while read ip; do
+        subnet=$(echo $ip | awk -F '.' '{print $1"."$2"."$3}')
+        
+        if [ ! -d "$subnet" ]; then
+            mkdir "$subnet"
+        fi
+        
+        echo $ip >> "$subnet/ips.txt"
+    done < $ip_list_file
+}
+
+function extractHosts() {
+    cat smb.txt | awk {'print $2'} | tee hosts_smbcme
+    cat dns.txt | awk {'print $4'} | tee hosts_dnsrecon
+    
+    merge_ips "hosts_smbcme" "hosts_dnsrecon" "hosts.txt"
+    
+    rm -rf "hosts_smbcme"
+    rm -rf "hosts_dnsrecon"
+    
+    separate_subnets "hosts.txt"
+}
+#########################################
+
 # Strip and encrypt PDF
 function strip_pdf() {
     echo "Original Metadata for $1"
