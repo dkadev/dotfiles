@@ -22,17 +22,78 @@ function mkpt(){
     fi
 }
 
-# Extract nmap information
-function extractPorts(){
-    ports="$(cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
-    ip_address="$(cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
-    echo -e "\n[*] Extracting information...\n" > extractPorts.tmp
-    echo -e "\t[*] IP Address: $ip_address"  >> extractPorts.tmp
-    echo -e "\t[*] Open ports: $ports\n"  >> extractPorts.tmp
-    echo $ports | tr -d '\n' | xclip -sel clip
-    echo -e "[*] Ports copied to clipboard\n"  >> extractPorts.tmp
-    cat extractPorts.tmp; rm extractPorts.tmp
+# Extract Nmap ports
+function extractPorts () {
+    ports="$(echo "$1" | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
+    ip_address="$(echo "$1" | grep -oP '\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}' | sort -u | head -n 1)"
+    echo -e "\t[] IP Address: $ip_address" >> extractPorts.tmp
+    echo -e "\t[] Open ports: $ports\n" >> extractPorts.tmp
+    cat extractPorts.tmp
+    rm extractPorts.tmp
 }
+
+# Extract Nmap ports from file
+function extractPortsFromFile() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: $0 <input_file>"
+        exit 1
+    fi
+    
+    input_file="$1"
+    output_file="output.txt"
+    
+    while read -r line; do
+        extractPorts "$line" >> "$output_file"
+    done < <(cat "$input_file")
+}
+
+# ExtractHosts from cme smb and dnsrecon
+#########################################
+function merge_ips() {
+    if [ "$#" -ne 3 ]; then
+        echo "Usage: $0 <ip_file1> <ip_file2> <output_file>"
+        exit 1
+    fi
+    
+    ip_file1=$1
+    ip_file2=$2
+    output_file=$3
+    
+    cat "$ip_file1" "$ip_file2" | sort -t . -k 3,3n -k 4,4n > "$output_file"
+    
+}
+
+function separate_subnets() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 <ip_list_file>"
+        exit 1
+    fi
+    
+    ip_list_file=$1
+    
+    while read ip; do
+        subnet=$(echo $ip | awk -F '.' '{print $1"."$2"."$3}')
+        
+        if [ ! -d "$subnet" ]; then
+            mkdir "$subnet"
+        fi
+        
+        echo $ip >> "$subnet/ips.txt"
+    done < $ip_list_file
+}
+
+function extractHosts() {
+    cat smb.txt | awk {'print $2'} | tee hosts_smbcme
+    cat dns.txt | awk {'print $4'} | tee hosts_dnsrecon
+    
+    merge_ips "hosts_smbcme" "hosts_dnsrecon" "hosts.txt"
+    
+    rm -rf "hosts_smbcme"
+    rm -rf "hosts_dnsrecon"
+    
+    separate_subnets "hosts.txt"
+}
+#########################################
 
 # Strip and encrypt PDF
 function strip_pdf() {
