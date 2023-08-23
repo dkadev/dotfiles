@@ -20,3 +20,6 @@ alias ip="ip --color=auto"
 alias h="history"
 alias hs="history | grep"
 alias hsi="history | grep -i"
+
+# walk
+alias lk="walk --icons"
