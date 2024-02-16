@@ -87,11 +87,16 @@ function extractHosts() {
     cat dns.txt | awk {'print $4'} | tee hosts_dnsrecon
     
     merge_ips "hosts_smbcme" "hosts_dnsrecon" "hosts.txt"
+    cat hosts.txt | uniq | tee hosts_sorted.txt
+    mv hosts_sorted.txt hosts.txt
     
     rm -rf "hosts_smbcme"
     rm -rf "hosts_dnsrecon"
     
     separate_subnets "hosts.txt"
+
+    rm -rf "Found.."
+    rm -rf "Lookup.."
 }
 #########################################
 
