@@ -23,3 +23,5 @@ alias hsi="history | grep -i"
 
 # walk
 alias lk="walk --icons"
+
+alias fman="compgen -c | fzf | xargs man"
