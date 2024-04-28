@@ -90,6 +90,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+DISABLE_AUTO_TITLE="true"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
