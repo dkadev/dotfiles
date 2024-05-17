@@ -43,7 +43,7 @@
       position = 200:50
       maximised = False
       fullscreen = False
-      size = 1500, 900
+      size = 900, 500
       title = " "
       last_active_term = af37d5d1-b31e-4585-bb69-76c20dec1583
       last_active_window = True
