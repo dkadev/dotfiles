@@ -123,3 +123,8 @@ export NVM_DIR="$HOME/.nvm"
 if [[ $(uname) == "Darwin" ]]; then
     eval "$(fzf --zsh)"
 fi
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=true
