@@ -22,6 +22,27 @@ function mkpt(){
     fi
 }
 
+# Process grepable nmap output and print ip and open ports
+function processGnmap() {
+    if [ "$#" -ne 1 ]; then
+        echo "Usage: $0 <gnmap file>"
+        return 1
+    fi
+
+    local inputFile="$1"
+    local outputFile="output.txt"
+
+    local fileContent=$(cat "$inputFile")
+
+    local ip=$(echo "$fileContent" | grep -oP '\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}' | sort -u | head -n 1)
+    local ports=$(echo "$fileContent" | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')
+
+    local result="IP Address: [$ip], Open Ports: [$ports]"
+    echo "$result"
+    echo "You may want to execute this nmap command now: nmap -sCV -p$ports -Pn -vvv -oA nmap_target $ip"
+    echo "$result" >>"$outputFile"
+}
+
 # Extract Nmap ports
 function extractPorts () {
     ports="$(echo "$1" | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
@@ -136,7 +157,6 @@ function zip_folders() {
         zip -P "$name" "$name.zip" "$name" -r
     done
 }
-
 # Tar and encrypt folders with gpg
 function ctargpg() {
     if [ $# -eq 0 ]; then
