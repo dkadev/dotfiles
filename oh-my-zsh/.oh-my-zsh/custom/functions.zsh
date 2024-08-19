@@ -2,23 +2,13 @@
 # Functions
 #------------------------------------------------------
 
-# Make box dirs
-function mkbx() {
-    if [ $# -eq 0 ]; then
-        echo "Usage: mkbx <dir_name>"
-    else
-        parent_dir_name=$1
-        mkdir -p "$parent_dir_name"/{content,exploits,recon} && ls -lah "$parent_dir_name"
-    fi
-}
-
 # Make pentest dirs
 function mkpt() {
     if [ $# -eq 0 ]; then
         echo "Usage: mkpt <dir_name>"
     else
         parent_dir_name=$1
-        mkdir -p "$parent_dir_name"/{evidence/credentials,evidence/data,evidence/screenshots,logs,scans,scope,tools} && ls -lah "$parent_dir_name"
+        mkdir -p "$parent_dir_name"/{credentials,data,exploits,logs,scans} && ls -lah "$parent_dir_name"
     fi
 }
 
