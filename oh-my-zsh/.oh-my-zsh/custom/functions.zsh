@@ -12,51 +12,23 @@ function mkpt() {
     fi
 }
 
-# Process grepable nmap output and print ip and open ports
+# Process grepable nmap output and print ip and open ports for each IP
 function processGnmap() {
     if [ "$#" -ne 1 ]; then
         echo "Usage: $0 <gnmap file>"
         return 1
     fi
-
     local inputFile="$1"
-    local outputFile="output.txt"
-
-    local fileContent=$(cat "$inputFile")
-
-    local ip=$(echo "$fileContent" | grep -oP '\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}' | sort -u | head -n 1)
-    local ports=$(echo "$fileContent" | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')
-
-    local result="IP Address: [$ip], Open Ports: [$ports]"
-    echo "$result"
-    echo "You may want to execute this nmap command now: nmap -sCV -p$ports -Pn -vvv -oA nmap_target $ip"
-    echo "$result" >>"$outputFile"
+    # Get all unique IP addresses
+    local ips=$(grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' "$inputFile" | sort -u)
+    # Process each IP address
+    echo "$ips" | while read -r ip; do
+        local ports=$(grep "$ip" "$inputFile" | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | sort -u | xargs | tr ' ' ',')
+        local result="IP Address: [$ip], Open Ports: [$ports]"
+        echo "$result"
+        echo "You may want to execute this nmap command now: nmap -sCV -p$ports -Pn -vvv -oA nmap_target $ip"
+    done
 }
-
-# Extract Nmap ports
-# function extractPorts() {
-#     ports="$(echo "$1" | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
-#     ip_address="$(echo "$1" | grep -oP '\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}' | sort -u | head -n 1)"
-#     echo -e "\t[] IP Address: $ip_address" >>extractPorts.tmp
-#     echo -e "\t[] Open ports: $ports\n" >>extractPorts.tmp
-#     cat extractPorts.tmp
-#     rm extractPorts.tmp
-# }
-
-# # Extract Nmap ports from file
-# function extractPortsFromFile() {
-#     if [ $# -eq 0 ]; then
-#         echo "Usage: $0 <input_file>"
-#         exit 1
-#     fi
-
-#     input_file="$1"
-#     output_file="output.txt"
-
-#     while read -r line; do
-#         extractPorts "$line" >>"$output_file"
-#     done < <(cat "$input_file")
-# }
 
 # ExtractHosts from cme smb and dnsrecon
 #########################################
