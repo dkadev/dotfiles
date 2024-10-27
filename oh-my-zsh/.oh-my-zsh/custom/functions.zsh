@@ -199,35 +199,6 @@ function wordlists(){
 	fi
 }
 
-function extractPorts(){
-	if [[ -n $1 && -z $2 ]]; then
-		ip_address="$(/usr/bin/cat $1 | grep -oP '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}' | sort -u | head -n 1)"
-		ports="$(/usr/bin/cat $1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
-		ports_list="$(/usr/bin/cat $1 | grep -v ^#| sed 's/Ports: /\'$'\n/g' |  tr '/' '\t' | tr ',' '\n' | sed 's/^ //g' | grep -v "Host" | sed 's/Ignored State.*$//')"
-		echo -e "\n\033[0;36m[\033[0;33m!\033[0;36m] \033[3;37mExtracting information...\033[0m" > extractPorts.tmp
-		echo -e "\n\t\033[0;36m[\033[0;32m+\033[0;36m] \033[0;37mIP Address: \033[0;35m$ip_address\033[0m" >> extractPorts.tmp
-		echo -e "\n\t\033[0;36m[\033[0;32m+\033[0;36m] \033[0;37mOpen Ports: \033[0;33m$ports\033[0m" >> extractPorts.tmp
-		echo -e "\n\033[0;36m[\033[0;34m*\033[0;36m] \033[0;37mPorts & Services: \033[0m" >> extractPorts.tmp
-		echo -e "\n$ports_list" >> extractPorts.tmp
-		echo $ports | tr -d '\n' | xclip -sel clip
-		echo -e "\n\033[0;36m[\033[0;33m!\033[0;36m] \033[1;37mPorts copied to clipboard\n\033[0m" >> extractPorts.tmp
-		/usr/bin/cat extractPorts.tmp; rm extractPorts.tmp
-	elif [[ -n $1 && -n $2 ]]; then
-		ports="$(/usr/bin/cat $1 | grep "$2" | sort -u | head -n 1 | grep -oP '\d{1,5}/open' | awk '{print $1}' FS='/' | xargs | tr ' ' ',')"
-		ports_list="$(grep -w "$2" $1 | grep -v ^# | sed 's/Ports: /\'$'\n/g' |  tr '/' '\t' | tr ',' '\n' | sed 's/^ //g' | grep -v "Host" | sed 's/Ignored State.*$//')"
-		echo -e "\n\033[0;36m[\033[0;33m!\033[0;36m] \033[3;37mExtracting information...\033[0m" > extractPorts.tmp
-		echo -e "\n\t\033[0;36m[\033[0;32m+\033[0;36m] \033[0;37mIP Address: \033[0;35m$2\033[0m" >> extractPorts.tmp
-		echo -e "\n\t\033[0;36m[\033[0;32m+\033[0;36m] \033[0;37mOpen Ports: \033[0;33m$ports\033[0m" >> extractPorts.tmp
-		echo -e "\n\033[0;36m[\033[0;34m*\033[0;36m] \033[0;37mPorts & Services: \033[0m" >> extractPorts.tmp
-		echo -e "\n$ports_list" >> extractPorts.tmp
-		echo $ports | tr -d '\n' | xclip -sel clip
-		echo -e "\n\033[0;36m[\033[0;33m!\033[0;36m] \033[1;37mPorts copied to clipboard\n\033[0m" >> extractPorts.tmp
-		/usr/bin/cat extractPorts.tmp; rm extractPorts.tmp
-	else
-		echo -e "\n\t\033[0;36m[\033[0;33m!\033[0;36m] \033[0;37mUse: $0 \033[3;37m<nmap.grepeable>\033[0m"
-	fi
-}
-
 # Search NSE script
 function nseSearch(){
 	#locate *.nse | grep -i -o "$1".*;
@@ -259,20 +230,6 @@ function addtarget(){
 # Delete target
 function deltarget(){
 	echo "" > $HOME/.config/scripts/.targets 2>/dev/null
-}
-
-# IP Address Information
-function ipinfo(){
-	if [[ -n $1 && $# -eq 1 ]]; then
-		curl http://ipinfo.io/$1
-	else
-		echo -e "\n\t\033[0;36m[\033[0;33m!\033[0;36m] \033[0;37mUse: ipinfo <IP-Address>\033[0m"
-	fi
-}
-
-# My IP Address Public
-function myip(){
-	curl ifconfig.co
 }
 
 # Conocer la URL en una URL acortada
