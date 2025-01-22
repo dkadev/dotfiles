@@ -12,6 +12,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="/opt/:$PATH"
 
 # GOLANG
+if [[ -d "/usr/local/go" ]]; then
+    export GOROOT="/usr/local/go"
+fi
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
