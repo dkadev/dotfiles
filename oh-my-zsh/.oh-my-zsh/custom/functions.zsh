@@ -8,7 +8,7 @@ function mkpt() {
         echo "Usage: mkpt <dir_name>"
     else
         parent_dir_name=$1
-        mkdir -p "$parent_dir_name"/{credentials,data,exploits,logs,scans} && ls -lah "$parent_dir_name"
+        mkdir -p "$parent_dir_name"/{creds,loot,exploit,logs,scans} && ls -lah "$parent_dir_name"
     fi
 }
 
