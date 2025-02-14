@@ -134,3 +134,10 @@ if command -v pyenv >/dev/null 2>&1; then
 fi
 
 export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=true
+
+# fnm
+FNM_PATH="$HOME/local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$HOME/local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
