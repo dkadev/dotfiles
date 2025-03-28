@@ -15,7 +15,7 @@ export PATH="/opt/:$PATH"
 if [[ -d "/usr/local/go" ]]; then
     export GOROOT="/usr/local/go"
 fi
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/.go"
 export PATH="$GOPATH/bin:$GOROOT/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
