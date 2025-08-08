@@ -5,6 +5,9 @@
 alias ls="lsd"
 alias ll="ls -lh"
 alias lla="ls -lah"
+
+alias ff="fzf --style full --preview 'fzf-preview.sh {}' --bind 'focus:transform-header:file --brief {}'"
+
 # macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
   alias cat="bat"
