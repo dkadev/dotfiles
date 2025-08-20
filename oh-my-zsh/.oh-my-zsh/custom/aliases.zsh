@@ -30,4 +30,10 @@ alias hsi="history | grep -i"
 # walk
 alias lk="walk --icons"
 
+# fman
 alias fman="compgen -c | fzf | xargs man"
+
+# tmux
+alias tmxl="tmux ls"
+alias tmxa="tmux a -t"
+alias tmxk="tmux kill-session -t"
