@@ -1,26 +1,39 @@
 # dotfiles
 
-A collection of my personal dotfiles.
+A collection of my personal dotfiles. These dotfiles are designed to work on macOS and Linux systems, providing a consistent and efficient environment. They include configurations for ZSH, Tmux, and various other tools that I use daily.
 
 ## Install
-
-TODO: add installation script
-
-- Install any Nerd Font like [Hack NF](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/) for terminal icons ([Font manager](https://github.com/FontManager/font-manager))
-- [Make ZSH default shell](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) if not already
-- [Oh My ZSH](https://ohmyz.sh/)
-- [powerlevel10k](https://github.com/romkatv/powerlevel10k) Theme for Oh My ZSH
-- [bat](https://github.com/sharkdp/bat) cat on steroids
-- [lsd](https://github.com/Peltoche/lsd) ls on steroids
-- [Iterm2-color-schemes](https://iterm2colorschemes.com/) A set of color themes for most terminals
-
-## Configuration
 
 Clone this repository:
 
 ```shell
 git clone https://github.com/dkadev/dotfiles.git ~/.dotfiles
 ```
+
+Run the installation script to install pre-requisites and set up the dotfiles:
+
+```shell
+cd ~/.dotfiles
+./install.sh
+```
+
+Script will ask for sudo permissions and install the following:
+
+- [Make ZSH default shell](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) if not already
+- [Oh My ZSH](https://ohmyz.sh/)
+- [powerlevel10k](https://github.com/romkatv/powerlevel10k) Theme for Oh My ZSH
+- [bat](https://github.com/sharkdp/bat) cat on steroids
+- [fzf](https://github.com/junegunn/fzf) command-line fuzzy finder
+- [eza](https://github.com/eza-community/eza) A modern alternative to ls
+- [ripgrep](https://github.com/BurntSushi/ripgrep) A line-oriented search tool that recursively searches your current directory for a regex pattern
+- [tmux](https://github.com/tmux/tmux) Terminal multiplexer
+- Nerd Font like [Hack](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/)
+
+Then it will auto-symlink the dotfiles to your home directory.
+
+## Plug and Play configuration only
+
+If you don't want to run the installation script, you can still use the dotfiles by manually symlinking them to your home directory. This is useful if you already have ZSH, Oh My ZSH, and other dependencies installed.
 
 ### Using [GNU Stow](https://www.gnu.org/software/stow/) _(recommended)_
 
