@@ -7,13 +7,12 @@ A collection of my personal dotfiles. These dotfiles are designed to work on mac
 Clone this repository:
 
 ```shell
-git clone https://github.com/dkadev/dotfiles.git ~/.dotfiles
+git clone https://github.com/dkadev/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && chmod +x install.sh
 ```
 
 Run the installation script to install pre-requisites and set up the dotfiles:
 
 ```shell
-cd ~/.dotfiles
 ./install.sh
 ```
 
