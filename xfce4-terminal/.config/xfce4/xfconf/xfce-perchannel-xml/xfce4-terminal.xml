@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="xfce4-terminal" version="1.0">
+  <property name="background-mode" type="string" value="TERMINAL_BACKGROUND_TRANSPARENT"/>
+  <property name="background-darkness" type="double" value="0.94999999999999996"/>
+  <property name="color-palette" type="string" value="rgb(31,34,41);rgb(212,25,25);rgb(87,227,137);rgb(254,164,76);rgb(54,123,240);rgb(151,85,179);rgb(73,174,230);rgb(230,230,230);rgb(25,131,136);rgb(236,1,1);rgb(38,162,105);rgb(255,138,24);rgb(39,127,255);rgb(150,42,195);rgb(5,161,247);rgb(255,255,255)"/>
+  <property name="color-use-theme" type="bool" value="false"/>
+  <property name="font-use-system" type="bool" value="false"/>
+  <property name="font-name" type="string" value="Hack Nerd Font Mono 9"/>
+  <property name="color-foreground" type="string" value="#c0c0bfbfbcbc"/>
+  <property name="color-background" type="string" value="#000000"/>
+  <property name="color-background-vary" type="bool" value="false"/>
+  <property name="color-cursor-foreground" type="string" value=""/>
+  <property name="color-cursor" type="string" value=""/>
+  <property name="color-cursor-use-default" type="bool" value="true"/>
+  <property name="color-selection" type="string" value=""/>
+  <property name="color-selection-background" type="string" value=""/>
+  <property name="color-selection-use-default" type="bool" value="true"/>
+  <property name="color-bold" type="string" value=""/>
+  <property name="color-bold-use-default" type="bool" value="true"/>
+  <property name="color-bold-is-bright" type="bool" value="true"/>
+  <property name="tab-activity-color" type="string" value="#aa0000"/>
+  <property name="scrolling-unlimited" type="bool" value="true"/>
+  <property name="misc-cursor-blinks" type="bool" value="true"/>
+  <property name="misc-copy-on-select" type="bool" value="true"/>
+  <property name="dropdown-status-icon" type="bool" value="false"/>
+  <property name="dropdown-always-show-tabs" type="bool" value="false"/>
+  <property name="dropdown-show-borders" type="bool" value="false"/>
+  <property name="dropdown-keep-open-default" type="bool" value="true"/>
+  <property name="misc-borders-default" type="bool" value="true"/>
+  <property name="misc-slim-tabs" type="bool" value="true"/>
+  <property name="command-login-shell" type="bool" value="false"/>
+  <property name="run-custom-command" type="bool" value="true"/>
+  <property name="custom-command" type="string" value="tmux"/>
+  <property name="scrolling-bar" type="string" value="TERMINAL_SCROLLBAR_NONE"/>
+</channel>
