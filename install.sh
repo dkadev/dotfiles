@@ -201,12 +201,19 @@ print_colored "${GREEN}" "✓ Configuration files linked."
 
 print_header "Font Installation"
 # Install Hack Nerd Font (patched font with icons)
-print_colored "${CYAN}" "Installing Hack Nerd Font..."
-mkdir -p $HOME/.fonts
-wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip -O $HOME/.fonts/Hack.zip > /dev/null 2>&1
-unzip -o $HOME/.fonts/Hack.zip -x README.md LICENSE.md -d $HOME/.fonts/ > /dev/null 2>&1
-rm $HOME/.fonts/Hack.zip 2>/dev/null
-print_colored "${GREEN}" "✓ Hack Nerd Font installed."
+print_colored "${YELLOW}" "Font installation is optional (e.g., not needed for SSH servers)."
+read -p "Do you want to install Hack Nerd Font? [y/N] " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    print_colored "${CYAN}" "Installing Hack Nerd Font..."
+    mkdir -p $HOME/.fonts
+    wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.zip -O $HOME/.fonts/Hack.zip > /dev/null 2>&1
+    unzip -o $HOME/.fonts/Hack.zip -x README.md LICENSE.md -d $HOME/.fonts/ > /dev/null 2>&1
+    rm $HOME/.fonts/Hack.zip 2>/dev/null
+    print_colored "${GREEN}" "✓ Hack Nerd Font installed."
+else
+    print_colored "${CYAN}" "Skipping font installation."
+fi
 
 # ============================================================================
 # Completion Message
