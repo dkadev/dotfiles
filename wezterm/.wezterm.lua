@@ -16,7 +16,7 @@ config.font = wezterm.font_with_fallback {
   'Hack',
   'Fira Code'
 }
-config.font_size = 11
+config.font_size = 12
 config.color_scheme = 'GitHub Dark'
 
 config.default_cursor_style = 'BlinkingBlock'
@@ -25,8 +25,7 @@ config.animation_fps = 1
 config.cursor_blink_ease_in = 'Constant'
 config.cursor_blink_ease_out = 'Constant'
 
-config.hide_tab_bar_if_only_one_tab = true
-config.window_decorations = "RESIZE"
+config.hyperlink_rules = wezterm.default_hyperlink_rules()
 
 -- Finally, return the configuration to wezterm:
 return config
