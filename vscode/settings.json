@@ -1,0 +1,76 @@
+{
+    "explorer.confirmDelete": false,
+    "extensions.ignoreRecommendations": true,
+    "git.ignoreMissingGitWarning": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "editor.fontFamily": "Hack NF, Hack Nerd Font Mono, Hack Nerd Font",
+    "editor.fontSize": 12,
+    "editor.tabSize": 4,
+    "editor.fontLigatures": true,
+    "editor.detectIndentation": false,
+    "editor.formatOnPaste": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.snippetSuggestions": "bottom",
+    "editor.inlineSuggest.enabled": true,
+    "terminal.integrated.fontFamily": "Hack NF, Hack Nerd Font Mono, Hack Nerd Font",
+    "css.lint.emptyRules": "ignore",
+    "files.associations": {
+        "*.inc": "php",
+        "*.html.twig": "php",
+        "*.scss": "css"
+    },
+    "workbench.startupEditor": "none",
+    "prettier.tabWidth": 4,
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.stickyScroll.enabled": false,
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "files.exclude": {
+        "node_modules": true,
+        "**/__pycache__": true,
+        "venv": true,
+    },
+    "window.newWindowProfile": "Default",
+    "workbench.colorTheme": "GitHub Dark Default",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "git.openRepositoryInParentFolders": "never",
+    "explorer.confirmDragAndDrop": false,
+    "docker.containers.sortBy": "CreatedTime",
+    "docker.containers.groupBy": "Compose Project Name",
+    "docker.containers.label": "ContainerName",
+    "docker.containers.description": [
+        "CreatedTime"
+    ],
+    "containers.containers.groupBy": "Compose Project Name",
+    "containers.containers.description": [
+        "CreatedTime"
+    ],
+    "containers.containers.label": "ContainerName",
+    "containers.containers.sortBy": "CreatedTime",
+    "terminal.integrated.cursorBlinking": true,
+    "workbench.activityBar.location": "top",
+    "kilo-code.debug": false,
+    "kilo-code.deniedCommands": [],
+}
