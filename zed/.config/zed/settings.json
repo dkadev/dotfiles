@@ -7,23 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent": {
-    "default_model": {
-      "provider": "ollama",
-      "model": "deepseek-coder-v2:latest",
-    },
-    "commit_message_model": {
-      "provider": "ollama",
-      "model": "deepseek-coder-v2:latest",
-    },
-    "model_parameters": [],
-  },
   "buffer_font_family": "Hack Nerd Font Mono",
   "telemetry": {
     "diagnostics": false,
     "metrics": false,
   },
-  "ui_font_size": 16,
+  "ui_font_size": 14,
   "buffer_font_size": 12.0,
   "theme": {
     "mode": "system",
